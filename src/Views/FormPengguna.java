@@ -86,7 +86,7 @@ public class FormPengguna extends javax.swing.JFrame {
         jLabel2.setText("ROLE");
 
         cbRole.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        cbRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PILIH", "KASIR", "ADMIN", "SUPERADMIN" }));
+        cbRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PILIH", "ADMIN", "SUPERADMIN" }));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("PASSWORD");

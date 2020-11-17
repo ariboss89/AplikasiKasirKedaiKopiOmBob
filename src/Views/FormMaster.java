@@ -39,14 +39,8 @@ public class FormMaster extends javax.swing.JFrame {
             menuProses.setEnabled(false);
             menuReport.setEnabled(false);
         }
-        else if(tb_pengguna.getRole().equals("KASIR")){
-            menuPengguna.setEnabled(false);
-            menuReport.setEnabled(false);
-        }
         else if(tb_pengguna.getRole().equals("ADMIN")){
             menuPengguna.setEnabled(false);
-            menuMenu.setEnabled(false);
-            menuProses.setEnabled(false);
         }
     }
     /**

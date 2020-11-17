@@ -9,6 +9,7 @@ package Views;
 import Controller.Koneksi;
 import Dao.MenuDao;
 import Models.table_model;
+import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -96,6 +97,11 @@ public class FormMenu extends javax.swing.JFrame {
         txtHarga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtHargaActionPerformed(evt);
+            }
+        });
+        txtHarga.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtHargaKeyTyped(evt);
             }
         });
 
@@ -339,6 +345,26 @@ public class FormMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         Refresh();
     }//GEN-LAST:event_btnNewActionPerformed
+
+    private void txtHargaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHargaKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+
+        if (!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE) || (karakter == KeyEvent.VK_ENTER)))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+        
+        if(karakter == KeyEvent.VK_SPACE){
+            getToolkit().beep();
+            evt.consume();
+        }
+        
+        if(txtHarga.getText().length() >= 12){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtHargaKeyTyped
 
     /**
      * @param args the command line arguments

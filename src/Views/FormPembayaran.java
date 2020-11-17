@@ -10,6 +10,7 @@ import Dao.DetailPemesananDao;
 import Dao.PembayaranDao;
 import Dao.ReportDao;
 import Models.table_model;
+import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Objects;
@@ -43,17 +44,9 @@ public class FormPembayaran extends javax.swing.JFrame {
     }
 
     private void ShowIdPemesanan() {
-//        int size = pb.ShowIdPemesanan().size();
-//        for (int a = 0; a < size; a++) {
-//            //cbIdPemesanan.addItem(pb.ShowIdPemesanan().get(a));
-            Object[] dataId = pb.ShowIdPemesanan().toArray();
-            DefaultComboBoxModel model = new DefaultComboBoxModel(dataId);
-            cbIdPemesanan.setModel(model);
-        //}
-
-//        String labels[] = {"A", "B", "C", "D", "E"};
-//        DefaultComboBoxModel model = new DefaultComboBoxModel(labels);
-//        cbIdPemesanan.setModel(model);
+        Object[] dataId = pb.ShowIdPemesanan().toArray();
+        DefaultComboBoxModel model = new DefaultComboBoxModel(dataId);
+        cbIdPemesanan.setModel(model);
     }
 
     private void Refresh() {
@@ -223,6 +216,9 @@ public class FormPembayaran extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBayarKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBayarKeyTyped(evt);
+            }
         });
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -309,12 +305,12 @@ public class FormPembayaran extends javax.swing.JFrame {
 
             pb.Update(bayar, kembalian, cbIdPemesanan.getSelectedItem().toString());
             rd.CetakStruk(cbIdPemesanan.getSelectedItem().toString());
-        
+
             Object[] dataId = pb.ShowIdPemesanan().toArray();
             DefaultComboBoxModel model = new DefaultComboBoxModel(dataId);
             cbIdPemesanan.addItem("PILIH");
             cbIdPemesanan.setModel(model);
-            
+
             cbIdPemesanan.setSelectedIndex(0);
             Refresh();
         }
@@ -326,13 +322,13 @@ public class FormPembayaran extends javax.swing.JFrame {
         String idPemesanan = cbIdPemesanan.getSelectedItem().toString();
         rss = dpd.ShowDataById(idPemesanan);
         tm.SetTabel(jTable1, rss, namaKolom, jmlKolom, lebar);
-        
+
         txtTanggal.setText(pb.ShowDataByIdPemesanan(idPemesanan).get(0));
         txtNoMeja.setText(pb.ShowDataByIdPemesanan(idPemesanan).get(1));
         txtKasir.setText(pb.ShowDataByIdPemesanan(idPemesanan).get(4));
         txtTotalItem.setText(pb.ShowDataByIdPemesanan(idPemesanan).get(2));
         txtTotalHarga.setText(pb.ShowDataByIdPemesanan(idPemesanan).get(3));
-        
+
         txtBayar.setText("0");
         txtBayar.requestFocus();
         txtKembalian.setText("0");
@@ -360,6 +356,26 @@ public class FormPembayaran extends javax.swing.JFrame {
         int kembalian = bayar - totalHarga;
         txtKembalian.setText(String.valueOf(kembalian));
     }//GEN-LAST:event_txtBayarKeyReleased
+
+    private void txtBayarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBayarKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+
+        if (!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE) || (karakter == KeyEvent.VK_ENTER)))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+        
+        if(karakter == KeyEvent.VK_SPACE){
+            getToolkit().beep();
+            evt.consume();
+        }
+        
+        if(txtBayar.getText().length() >= 12){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtBayarKeyTyped
 
     /**
      * @param args the command line arguments

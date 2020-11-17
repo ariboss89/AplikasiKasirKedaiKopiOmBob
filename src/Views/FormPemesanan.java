@@ -227,6 +227,9 @@ public class FormPemesanan extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtQtyKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtQtyKeyTyped(evt);
+            }
         });
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -489,6 +492,26 @@ public class FormPemesanan extends javax.swing.JFrame {
         
         dpd.setId_detail(jTable1.getValueAt(rowSelect, 0).toString());
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void txtQtyKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtQtyKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+
+        if (!(((karakter >= '0') && (karakter <= '9') || (karakter == java.awt.event.KeyEvent.VK_BACK_SPACE) || (karakter == java.awt.event.KeyEvent.VK_DELETE) || (karakter == java.awt.event.KeyEvent.VK_ENTER)))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+        
+        if(karakter == java.awt.event.KeyEvent.VK_SPACE){
+            getToolkit().beep();
+            evt.consume();
+        }
+        
+        if(txtQty.getText().length() >= 12){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtQtyKeyTyped
 
     /**
      * @param args the command line arguments
