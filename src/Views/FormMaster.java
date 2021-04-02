@@ -6,6 +6,7 @@
 
 package Views;
 
+import Dao.ReportDao;
 import Models.tb_pengguna;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -17,6 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class FormMaster extends javax.swing.JFrame {
 
+    ReportDao rd = new ReportDao();
     /**
      * Creates new form FormMaster
      */
@@ -27,7 +29,7 @@ public class FormMaster extends javax.swing.JFrame {
         int x = (dim.width - getWidth()) / 2;
         int y = (dim.height - getHeight()) / 2;
         setLocation(x, y);
-        Check();
+        //Check();
     }
 
     private void Check(){
@@ -38,6 +40,7 @@ public class FormMaster extends javax.swing.JFrame {
             menuMenu.setEnabled(false);
             menuProses.setEnabled(false);
             menuReport.setEnabled(false);
+            menuLaporanFavorit.setEnabled(false);
         }
         else if(tb_pengguna.getRole().equals("ADMIN")){
             menuPengguna.setEnabled(false);
@@ -53,6 +56,7 @@ public class FormMaster extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        background1 = new Icon.Background();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuPengguna = new javax.swing.JMenuItem();
@@ -62,24 +66,36 @@ public class FormMaster extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         menuReport = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
+        menuLaporanFavorit = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(102, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
+        background1.setLayout(background1Layout);
+        background1Layout.setHorizontalGroup(
+            background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1362, Short.MAX_VALUE)
+        );
+        background1Layout.setVerticalGroup(
+            background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 742, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1362, Short.MAX_VALUE)
+            .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 742, Short.MAX_VALUE)
+            .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jMenu1.setText("INPUT");
@@ -131,6 +147,14 @@ public class FormMaster extends javax.swing.JFrame {
             }
         });
         menuReport.add(jMenuItem5);
+
+        menuLaporanFavorit.setText("LAPORAN MENU FAVORIT");
+        menuLaporanFavorit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuLaporanFavoritActionPerformed(evt);
+            }
+        });
+        menuReport.add(menuLaporanFavorit);
 
         jMenuBar1.add(menuReport);
 
@@ -208,6 +232,11 @@ public class FormMaster extends javax.swing.JFrame {
         new FormReport().show();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void menuLaporanFavoritActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLaporanFavoritActionPerformed
+        // TODO add your handling code here:
+        rd.CetakLaporanFavorit();
+    }//GEN-LAST:event_menuLaporanFavoritActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -244,6 +273,7 @@ public class FormMaster extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private Icon.Background background1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
@@ -252,6 +282,7 @@ public class FormMaster extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem menuLaporanFavorit;
     private javax.swing.JMenuItem menuMenu;
     private javax.swing.JMenuItem menuPengguna;
     private javax.swing.JMenu menuProses;

@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="04799074-736c-4dd3-9f6a-d7de77746aee">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="12"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="dari" class="java.util.Date"/>
 	<parameter name="sampai" class="java.util.Date"/>
 	<queryString>
@@ -59,19 +59,23 @@
 				<reportElement x="0" y="0" width="555" height="64" uuid="fba30aea-249c-489b-9d79-38c4d75056e7"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="0" y="32" width="555" height="32" uuid="bbc3c968-9032-40b1-80b2-2f2c95220fab"/>
+				<reportElement x="130" y="32" width="425" height="32" uuid="bbc3c968-9032-40b1-80b2-2f2c95220fab"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="24" isBold="true"/>
 				</textElement>
-				<text><![CDATA[KEDAI KOPI OM BOB]]></text>
+				<text><![CDATA[KEDAI KOPI LEK RAN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="0" width="555" height="32" uuid="e4e7b4bb-7f6a-401c-99bd-fabd3992ad68"/>
+				<reportElement x="130" y="0" width="425" height="32" uuid="e4e7b4bb-7f6a-401c-99bd-fabd3992ad68"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="24" isBold="true"/>
 				</textElement>
 				<text><![CDATA[LAPORAN PENJUALAN]]></text>
 			</staticText>
+			<image>
+				<reportElement x="10" y="0" width="110" height="64" uuid="f9a6bfe8-37ab-4737-90a1-262826bf2325"/>
+				<imageExpression><![CDATA["D:\\PROJECT\\Repos\\AplikasiKedaiKopiLekRan\\src\\Icon\\lekran.jpeg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

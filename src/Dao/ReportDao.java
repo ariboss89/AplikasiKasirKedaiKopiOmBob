@@ -58,4 +58,20 @@ public class ReportDao {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    
+    public void CetakLaporanFavorit() {
+        
+        con = new Koneksi();
+
+        try {
+            HashMap parameter = new HashMap();
+            File file = new File("src/Reports/LaporanFavorit.jasper");
+            JasperReport jp = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jp, parameter, con.connect());
+            JasperViewer.viewReport(jasperPrint, false);
+            JasperViewer.setDefaultLookAndFeelDecorated(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
 }

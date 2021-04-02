@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cbb638c3-701e-4f62-af13-2a17dd4afd47">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="101"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="idpemesanan" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT
@@ -63,16 +63,16 @@ WHERE c.id_pemesanan = $P{idpemesanan}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="145" splitType="Stretch">
+		<band height="136" splitType="Stretch">
 			<rectangle>
-				<reportElement x="0" y="0" width="555" height="145" uuid="38f6884d-ccde-467c-bf80-13c50e83667d"/>
+				<reportElement x="0" y="0" width="554" height="136" uuid="38f6884d-ccde-467c-bf80-13c50e83667d"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="0" y="0" width="555" height="41" uuid="e323e064-3ddc-4049-9e6d-d6a2871a0c48"/>
+				<reportElement x="192" y="0" width="363" height="41" uuid="e323e064-3ddc-4049-9e6d-d6a2871a0c48"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="24" isBold="true"/>
 				</textElement>
-				<text><![CDATA[STRUK KEDAI KOPI OM BOB]]></text>
+				<text><![CDATA[STRUK KEDAI KOPI LEK RAN]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="355" y="56" width="100" height="20" uuid="bb0b2390-43bc-4b25-beb5-fa764e52d54a"/>
@@ -122,6 +122,10 @@ WHERE c.id_pemesanan = $P{idpemesanan}]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$P{idpemesanan}]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement x="20" y="30" width="149" height="106" uuid="ad9de3c6-2635-47eb-bf3d-52803c773119"/>
+				<imageExpression><![CDATA["D:\\PROJECT\\Repos\\AplikasiKedaiKopiLekRan\\src\\Icon\\lekran.jpeg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

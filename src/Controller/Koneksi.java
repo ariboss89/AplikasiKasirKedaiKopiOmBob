@@ -25,7 +25,7 @@ public class Koneksi {
     }
     //koneksi ke database
     try{
-        String url="jdbc:mysql://localhost:3306/thoriq";
+        String url="jdbc:mysql://localhost:3306/lekran";
         conn = DriverManager.getConnection(url,"root","");
         System.out.println("Berhasil koneksi ke Database");
     }catch(SQLException e){
