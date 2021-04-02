@@ -1,5 +1,5 @@
-﻿# Host: localhost  (Version: 5.5.8)
-# Date: 2020-12-22 22:40:25
+﻿# Host: localhost  (Version: 5.5.5-10.4.17-MariaDB)
+# Date: 2021-04-02 19:12:15
 # Generator: MySQL-Front 5.3  (Build 4.81)
 
 /*!40101 SET NAMES utf8 */;
@@ -92,4 +92,4 @@ CREATE TABLE `tb_pengguna` (
 # Data for table "tb_pengguna"
 #
 
-INSERT INTO `tb_pengguna` VALUES ('thoriq123','123456','SUPERADMIN'),('tika123','123456','ADMIN'),('zila123','123456','ADMIN');
+INSERT INTO `tb_pengguna` VALUES ('hengky123','123456','SUPERADMIN'),('tika123','123456','ADMIN'),('zila123','123456','ADMIN');
